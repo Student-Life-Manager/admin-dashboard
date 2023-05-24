@@ -38,6 +38,15 @@ const routes = [
     route: "/outpasses",
     component: <AllOutpassTable />,
   },
+  {
+    type: "collapse",
+    name: "Edit guardians",
+    key: "Edit guardians",
+    icon: <Icon fontSize="small">upload_file</Icon>,
+    route: "/edit-guardians",
+    component: <AllOutpassTable />,
+  },
+
   // {
   //   type: "collapse",
   //   name: "RTL",
