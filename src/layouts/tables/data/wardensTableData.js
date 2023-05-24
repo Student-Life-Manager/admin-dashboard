@@ -1,21 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/function-component-definition */
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDBadge from "components/MDBadge";
@@ -48,22 +31,20 @@ export default function data() {
 
   return {
     columns: [
-      { Header: "student", accessor: "author", width: "45%", align: "left" },
-      { Header: "academic details", accessor: "function", align: "left" },
-      { Header: "section", accessor: "status", align: "center" },
-      { Header: "number of outpasses", accessor: "employed", align: "center" },
-      { Header: "action", accessor: "action", align: "center" },
+      { Header: "warden", accessor: "author", width: "45%", align: "left" },
+      { Header: "tower", accessor: "function", align: "left" },
+      { Header: "hostel type", accessor: "status", align: "center" },
+      // { Header: "your face", accessor: "employed", align: "center" },
+      // { Header: "my face", accessor: "action", align: "center" },
     ],
 
     rows: [
       {
-        author: (
-          <Author image={team2} name="Ramya Sri Vempati" email="ramya_sri_vempati@srmap.edu.in" />
-        ),
-        function: <Job title="I" description="CSE" />,
+        author: <Author image={team2} name="Alekhya kullu" email="alekhya_kull@srmap.edu.in" />,
+        function: <Job title="TOWER 1" description="Ganga" />,
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            C
+            Boys
           </MDTypography>
         ),
         employed: (
@@ -78,17 +59,11 @@ export default function data() {
         ),
       },
       {
-        author: (
-          <Author
-            image={team3}
-            name="Smaranika Battacharya"
-            email="smaranika_battacharya@srmap.edu.in"
-          />
-        ),
-        function: <Job title="IV" description="MECH" />,
+        author: <Author image={team3} name="Ramadevi Polla" email="ramadevi_polla@srmap.edu.in" />,
+        function: <Job title="TOWER 2" description="Yamuna" />,
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            D
+            Girls
           </MDTypography>
         ),
         employed: (
@@ -103,11 +78,11 @@ export default function data() {
         ),
       },
       {
-        author: <Author image={team4} name="Janhavi Patil" email="janhvi_patil@srmap.edu.in" />,
-        function: <Job title="II" description="CHEMICAL" />,
+        author: <Author image={team4} name="Nirmala Patil" email="nirmala_patil@srmap.edu.in" />,
+        function: <Job title="TOWER 3" description="Yamuna" />,
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            E
+            Girls
           </MDTypography>
         ),
         employed: (
@@ -122,13 +97,11 @@ export default function data() {
         ),
       },
       {
-        author: (
-          <Author image={team3} name="Adithi Polamoni" email="adithi_polamoni@srmap.edu.in" />
-        ),
-        function: <Job title="III" description="BIOTECH" />,
+        author: <Author image={team4} name="Tharun Kullu" email="tharun_kullu@srmap.edu.in" />,
+        function: <Job title="TOWER 2" description="Krishna" />,
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            A
+            Boys
           </MDTypography>
         ),
         employed: (
@@ -143,13 +116,11 @@ export default function data() {
         ),
       },
       {
-        author: (
-          <Author image={team3} name="Nikitha Godavarthi" email="nikitha_godavarthi@srmap.edu.in" />
-        ),
-        function: <Job title="II" description="EEE" />,
+        author: <Author image={team3} name="Reena Deshmukh" email="reena_deshmukh@srmap.edu.in" />,
+        function: <Job title="TOWER 3" description="Narmada" />,
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            B
+            Girls
           </MDTypography>
         ),
         employed: (
@@ -164,11 +135,11 @@ export default function data() {
         ),
       },
       {
-        author: <Author image={team4} name="Rishit Pandey" email="rishit_pandey@srmap.edu.in" />,
-        function: <Job title="IV" description="COMMERCE" />,
+        author: <Author image={team3} name="Ananya Pandey" email="ananya_pandey@srmap.edu.in" />,
+        function: <Job title="TOWER 3" description="Godavari" />,
         status: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            C
+            Girls
           </MDTypography>
         ),
         employed: (

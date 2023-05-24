@@ -37,7 +37,7 @@ const colors = {
   },
 
   secondary: {
-    main: "#E6EBFF",
+    main: "#7b809a",
     focus: "E6EBFF",
   },
 
@@ -90,8 +90,8 @@ const colors = {
     },
 
     secondary: {
-      main: "#747b8a",
-      state: "#495361",
+      main: "#7b809a",
+      focus: "#8f93a9",
     },
 
     info: {
@@ -125,8 +125,8 @@ const colors = {
     },
 
     otherBlue : {
-      main : "#E6EBFF",
-      state : "#E6EBFF"
+      main : "#7b809a",
+      state : "#7b809a"
     }
   },
 
