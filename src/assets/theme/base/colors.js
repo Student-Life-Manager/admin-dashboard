@@ -32,17 +32,17 @@ const colors = {
   },
 
   primary: {
-    main: "#e91e63",
+    main: "#313FDD",
     focus: "#e91e63",
   },
 
   secondary: {
-    main: "#7b809a",
-    focus: "#8f93a9",
+    main: "#E6EBFF",
+    focus: "E6EBFF",
   },
 
   info: {
-    main: "#1A73E8",
+    main: "#313FDD",
     focus: "#1662C4",
   },
 
@@ -95,8 +95,8 @@ const colors = {
     },
 
     info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
+      main: "#313FDD",
+      state: "#313FDD",
     },
 
     success: {
@@ -123,6 +123,11 @@ const colors = {
       main: "#42424a",
       state: "#191919",
     },
+
+    otherBlue : {
+      main : "#E6EBFF",
+      state : "#E6EBFF"
+    }
   },
 
   socialMediaColors: {

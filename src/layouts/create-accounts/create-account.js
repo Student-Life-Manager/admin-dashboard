@@ -13,16 +13,16 @@ import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
-import Illustration from "assets/images/illustrations/illustration.png"
-
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
 
+// Images
+import bgImage from "assets/images/bg-sign-up-cover.jpeg";
 
 function Cover() {
   return (
-    <CoverLayout style={{display:"flex", flexDirection:"column"}}>  
-      <Card style={{position:"relative"}}>
+    <CoverLayout image={bgImage}>
+      <Card>
         <MDBox
           variant="gradient"
           bgColor="info"
@@ -35,10 +35,10 @@ function Cover() {
           textAlign="center"
         >
           <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-            Create accounts
+            Join us today
           </MDTypography>
           <MDTypography display="block" variant="button" color="white" my={1}>
-            You can create warden, guard and student accounts.
+            Enter your email and password to register
           </MDTypography>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
@@ -52,34 +52,15 @@ function Cover() {
             <MDBox mb={2}>
               <MDInput type="password" label="Password" variant="standard" fullWidth />
             </MDBox>
-            <MDBox mb={2}>
-            <MDInput type="select" label="Type of account" variant="standard" fullWidth />
-
-            {/* <InputLabel id="demo-simple-select-label">Age</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={age}
-                label="Age"
-                onChange={handleChange}
-              >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select> */}
-            </MDBox>
-
-
-
             <MDBox display="flex" alignItems="center" ml={-1}>
-              {/* <Checkbox /> */}
+              <Checkbox />
               <MDTypography
                 variant="button"
                 fontWeight="regular"
                 color="text"
                 sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
               >
-                &nbsp;&nbsp; &nbsp;Contact super admin for support
+                &nbsp;&nbsp;I agree the&nbsp;
               </MDTypography>
               <MDTypography
                 component="a"
@@ -89,15 +70,15 @@ function Cover() {
                 color="info"
                 textGradient
               >
-                {/* Please create super admin for support to add new admins */}
+                Terms and Conditions
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
               <MDButton variant="gradient" color="info" fullWidth>
-                Create account
+                sign in
               </MDButton>
             </MDBox>
-            {/* <MDBox mt={3} mb={1} textAlign="center">
+            <MDBox mt={3} mb={1} textAlign="center">
               <MDTypography variant="button" color="text">
                 Already have an account?{" "}
                 <MDTypography
@@ -111,23 +92,10 @@ function Cover() {
                   Sign In
                 </MDTypography>
               </MDTypography>
-            </MDBox> */}
+            </MDBox>
           </MDBox>
         </MDBox>
-        {/* <CardMedia
-          src={Illustration}
-          component="Illustration"
-          title={"title"}
-          sx={{
-            maxWidth: "100%",
-            margin: 0,
-            boxShadow: ({ boxShadows: { md } }) => md,
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        /> */}
       </Card>
-      {/* <img src={Illustration}/> */}
     </CoverLayout>
   );
 }

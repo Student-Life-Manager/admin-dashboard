@@ -19,8 +19,8 @@ import Footer from "layouts/authentication/components/Footer";
 
 function CoverLayout({ coverHeight, image, children }) {
   return (
-    <PageLayout>
-      <DefaultNavbar
+    <PageLayout backgroundColor="black" >
+      {/* <DefaultNavbar
         action={{
           type: "external",
           route: "https://creative-tim.com/product/material-dashboard-react",
@@ -28,7 +28,7 @@ function CoverLayout({ coverHeight, image, children }) {
         }}
         transparent
         light
-      />
+      /> */}
       <MDBox
         width="calc(100% - 2rem)"
         minHeight={coverHeight}
@@ -37,34 +37,23 @@ function CoverLayout({ coverHeight, image, children }) {
         my={2}
         pt={6}
         pb={28}
-        sx={{
-          backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
-            image &&
-            `${linearGradient(
-              rgba(gradients.dark.main, 0.4),
-              rgba(gradients.dark.state, 0.4)
-            )}, url(${image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
       />
-      <MDBox mt={{ xs: -20, lg: -18 }} px={1} width="calc(100% - 2rem)" mx="auto">
+      <MDBox mt={{ xs: -20, lg: -18 }} width="calc(100%)" mx="auto" >
         <Grid container spacing={1} justifyContent="center">
-          <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
+          <Grid item xs={11} sm={9} md={5} lg={4} xl={3} style={{display:"flex", flexDirection:"column"}}>
             {children}
           </Grid>
         </Grid>
       </MDBox>
-      <Footer />
+      {/* <Footer /> */}
     </PageLayout>
   );
 }
 
 // Setting default props for the CoverLayout
-CoverLayout.defaultProps = {
-  coverHeight: "35vh",
-};
+// CoverLayout.defaultProps = {
+//   coverHeight: "35vh",
+// };
 
 // Typechecking props for the CoverLayout
 CoverLayout.propTypes = {

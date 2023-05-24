@@ -31,6 +31,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+// import CreateAccounts from "layouts/create-accounts";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -100,6 +101,14 @@ const routes = [
     route: "/authentication/sign-up",
     component: <SignUp />,
   },
+  // {
+  //   type: "collapse",
+  //   name: "Create accounts",
+  //   key: "create-accounts",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/create-account",
+  //   component: <CreateAccounts />,
+  // },
 ];
 
 export default routes;
