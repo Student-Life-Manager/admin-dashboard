@@ -2,6 +2,7 @@
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 import AllOutpassTable from "layouts/all-outpasses-table";
+import FileUpload from "layouts/file-upload";
 
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
@@ -44,7 +45,7 @@ const routes = [
     key: "Edit guardians",
     icon: <Icon fontSize="small">upload_file</Icon>,
     route: "/edit-guardians",
-    component: <AllOutpassTable />,
+    component: <FileUpload />,
   },
 
   // {
