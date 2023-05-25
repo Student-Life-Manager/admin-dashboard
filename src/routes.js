@@ -42,19 +42,19 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Edit guardians",
-    key: "Edit guardians",
-    icon: <Icon fontSize="small">upload_file</Icon>,
-    route: "/edit-guardians",
-    component: <FileUpload />,
-  },
-  {
-    type: "collapse",
     name: "Outpass tracker",
     key: "Outpass tracker",
     icon: <Icon fontSize="small">pending_actions</Icon>,
     route: "/outpass-tracker",
     component: <OutpassTracker />,
+  },
+  {
+    type: "collapse",
+    name: "Edit guardians",
+    key: "Edit guardians",
+    icon: <Icon fontSize="small">upload_file</Icon>,
+    route: "/edit-guardians",
+    component: <FileUpload />,
   },
 
   // {
@@ -89,12 +89,20 @@ const routes = [
   //   route: "/authentication/sign-in",
   //   component: <SignIn />,
   // },
+  // {
+  //   type: "collapse",
+  //   name: "Create Accounts",
+  //   key: "sign-up",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/authentication/sign-up",
+  //   component: <SignUp />,
+  // },
   {
     type: "collapse",
     name: "Create Accounts",
     key: "sign-up",
     icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/authentication/sign-up",
+    route: "/create-account",
     component: <SignUp />,
   },
 ];

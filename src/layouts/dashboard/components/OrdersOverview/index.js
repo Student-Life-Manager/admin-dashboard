@@ -32,37 +32,56 @@ function OutpassesOverview() {
         </MDBox>
       </MDBox>
       <MDBox p={2}>
+      <TimelineItem
+          color="info"
+          icon="add_circle"
+          title="43 Outpasses created"
+          dateTime="30 from boys, 13 from girls"
+        />    
         <TimelineItem
-          color="success"
-          icon="notifications"
-          title="$2400, Design changes"
-          dateTime="22 DEC 7:20 PM"
-        />
+        color="warning"
+        icon="access_time"
+        title="10 Outpasses pending"
+        dateTime="30 from boys, 13 from girls"
+      />
         <TimelineItem
           color="error"
-          icon="inventory_2"
-          title="New order #1832412"
-          dateTime="21 DEC 11 PM"
+          icon="do_not_disturb"
+          title="5 Outpasses rejected by "
+          dateTime="4 boys"
         />
-        <TimelineItem
-          color="info"
-          icon="shopping_cart"
-          title="Server payments for April"
-          dateTime="21 DEC 9:34 PM"
+
+<TimelineItem
+          color="dark"
+          icon="check_circle"
+          title="33 Outpasses approved by "
+          dateTime="10 boys, 23 girls"
         />
-        <TimelineItem
-          color="warning"
-          icon="payment"
-          title="New card added for order #4395133"
-          dateTime="20 DEC 2:20 AM"
+
+<TimelineItem
+          color="secondary"
+          icon="apartment"
+          title="15 In campus outpass"
+          dateTime="15 boys"
         />
-        <TimelineItem
+
+
+<TimelineItem
           color="primary"
-          icon="vpn_key"
-          title="New card added for order #4395133"
-          dateTime="18 DEC 4:54 AM"
-          lastItem
+          icon="apartment"
+          title="10 exited cammpus outpass"
+          dateTime="5 boys, 5 girls"
         />
+
+
+<TimelineItem
+          color="success"
+          icon="apartment"
+          title="2 returned to campus"
+          dateTime="21 left"
+        />
+
+  
       </MDBox>
     </Card>
   );
