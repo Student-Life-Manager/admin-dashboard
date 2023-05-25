@@ -7,6 +7,7 @@ import FileUpload from "layouts/file-upload";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
+import OutpassTracker from "layouts/outpass-tracker";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
@@ -46,6 +47,14 @@ const routes = [
     icon: <Icon fontSize="small">upload_file</Icon>,
     route: "/edit-guardians",
     component: <FileUpload />,
+  },
+  {
+    type: "collapse",
+    name: "Outpass tracker",
+    key: "Outpass tracker",
+    icon: <Icon fontSize="small">pending_actions</Icon>,
+    route: "/outpass-tracker",
+    component: <OutpassTracker />,
   },
 
   // {

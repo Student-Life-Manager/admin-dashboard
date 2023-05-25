@@ -11,12 +11,12 @@ import MDTypography from "components/MDTypography";
 // Material Dashboard 2 React example components
 import TimelineItem from "examples/Timeline/TimelineItem";
 
-function OrdersOverview() {
+function OutpassesOverview() {
   return (
     <Card sx={{ height: "100%" }}>
       <MDBox pt={3} px={3}>
         <MDTypography variant="h6" fontWeight="medium">
-          Orders overview
+          Outpasses overview
         </MDTypography>
         <MDBox mt={0} mb={2}>
           <MDTypography variant="button" color="text" fontWeight="regular">
@@ -27,7 +27,7 @@ function OrdersOverview() {
             <MDTypography variant="button" color="text" fontWeight="medium">
               24%
             </MDTypography>{" "}
-            this month
+            today
           </MDTypography>
         </MDBox>
       </MDBox>
@@ -68,4 +68,4 @@ function OrdersOverview() {
   );
 }
 
-export default OrdersOverview;
+export default OutpassesOverview;
