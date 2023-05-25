@@ -11,7 +11,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
-import Dropdown from "./Dropdown"
+import Dropzone from "./Dropzone"
 
 // Data
 
@@ -23,7 +23,7 @@ function Tables() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <Dropdown/>
+      <Dropzone/>
       {/* <Footer /> */}
     </DashboardLayout>
   );
