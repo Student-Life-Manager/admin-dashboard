@@ -1,4 +1,5 @@
 // @mui material components
+import { useState, useEffect } from 'react';
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
@@ -18,9 +19,65 @@ import wardensTableData from "layouts/tables/data/wardensTableData";
 import projectsTableData from "layouts/tables/data/projectsTableData";
 
 function Tables() {
-  const { columns, rows } = authorsTableData();
-  const { columns: wColumns, rows: wRows } = wardensTableData();
-  const { columns: pColumns, rows: pRows } = projectsTableData();
+
+  const [students, setStudents] = useState({columns: [], rows: []});
+  const [wardens, setWardens] = useState({ columns: [], rows: [] });
+  const [outpasses, setOutpasses] = useState({ columns: [], rows: [] })
+
+  const fetchStudents = () => {
+    const BASE_URL = "http://localhost:8000"
+    fetch(`${BASE_URL}/students`, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      setStudents(authorsTableData(data))
+    })
+    .catch((err) => console.log(err))
+  }
+
+  const fetchWardens = () => {
+    const BASE_URL = "http://localhost:8000"
+    fetch(`${BASE_URL}/wardens`, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      setWardens(wardensTableData(data))
+    })
+    .catch((err) => console.log(err))
+  }
+
+  const fetchOutpasses = () => {
+    const BASE_URL = "http://localhost:8000"
+    fetch(`${BASE_URL}/outpasses`, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      setOutpasses(projectsTableData(data))
+    })
+    .catch((err) => console.log(err))
+  }
+
+  useEffect(() => {
+    fetchStudents()
+    fetchWardens()
+    fetchOutpasses()
+  }, [])
+
+  const { columns, rows } = students;
+  const { columns: wColumns, rows: wRows } = wardens;
+  const { columns: pColumns, rows: pRows } = outpasses;
+
 
   return (
     <DashboardLayout>
