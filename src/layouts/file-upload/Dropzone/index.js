@@ -13,14 +13,15 @@ const DropzoneComponent = () => {
       const wsName = wb.SheetNames[0]
       const ws = wb.Sheets[wsName];
 
-      // const data = XLSX.utils.sheet_to_csv(ws);
       const data = XLSX.utils.sheet_to_json(ws)
+
+      console.log(data)
 
       setGuardianDetails(data)
 
       data.map((student) => {
-        console.log(student.UUID)
-        console.log(student.Name)
+        console.log(student.Email)
+        console.log(student.Relation)
         console.log(student.Phone)
         return null
       })
@@ -32,23 +33,25 @@ const DropzoneComponent = () => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const [guardianDetails, setGuardianDetails] = useState([])
-  const [status, setStatus] = useState("not_started")
+  const [status, setStatus] = useState("Add Guardians")
 
   const addGuardians = () => {
-    setStatus("started")
-    fetch("", {
+    setStatus("Adding...")
+    fetch("http://localhost:8000/guardians/add_guardians", {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: guardianDetails
+      body: JSON.stringify(guardianDetails)
     })
     .then((response) => response.json())
     .then((data) => {
-      setStatus("completed")
+      if(data !== true) setStatus("Failed! Try Again.")
+      setStatus("Done!")
     })
     .catch((err) => {
       console.log(err);
-      setStatus("failed")
+      setStatus("Failed! Try again.")
     })
   }
 
@@ -85,6 +88,9 @@ const DropzoneComponent = () => {
           cursor: 'pointer',
           marginTop : "50px"
         }}
+        onClick={(e) => {
+          addGuardians();
+        }}
       >
         {isDragActive ? (
           <p>Drop the file here</p>
@@ -92,7 +98,9 @@ const DropzoneComponent = () => {
           <p>Drag and drop file here</p>
         )}
       </div>
-      <button style={{ border: 'none', background: 'pink', padding: '14px', borderRadius: '5px', margin: '14px' }}>Add guardians</button>
+      <button onClick={(e) => {
+        addGuardians();
+      }} style={{ border: 'none', background: 'pink', padding: '14px', borderRadius: '5px', margin: '14px' }}>{status}</button>
     </div>
   );
 };

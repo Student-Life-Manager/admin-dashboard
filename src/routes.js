@@ -65,6 +65,15 @@ const routes = [
   //   route: "/rtl",
   //   component: <RTL />,
   // },
+
+  {
+    type: "collapse",
+    name: "Requests",
+    key: "Request",
+    icon: <Icon fontSize="small">receipt_long</Icon>,
+    route: "/student-edit-requests",
+    component: <AllStudentRequestsTable />,
+  },
   {
     type: "collapse",
     name: "Events",
