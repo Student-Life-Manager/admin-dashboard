@@ -1,13 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
 import { useDropzone } from 'react-dropzone';
 
 const DropzoneComponent = () => {
   const onDrop = (acceptedFiles) => {
     // Handle the dropped files here
-    console.log(acceptedFiles);
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const wb = XLSX.read(event.target.result, { type: 'binary' })
+
+      const wsName = wb.SheetNames[0]
+      const ws = wb.Sheets[wsName];
+
+      // const data = XLSX.utils.sheet_to_csv(ws);
+      const data = XLSX.utils.sheet_to_json(ws)
+
+      setGuardianDetails(data)
+
+      data.map((student) => {
+        console.log(student.UUID)
+        console.log(student.Name)
+        console.log(student.Phone)
+        return null
+      })
+    }
+
+    reader.readAsBinaryString(acceptedFiles[0])
+
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const [guardianDetails, setGuardianDetails] = useState([])
+  const [status, setStatus] = useState("not_started")
+
+  const addGuardians = () => {
+    setStatus("started")
+    fetch("", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: guardianDetails
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      setStatus("completed")
+    })
+    .catch((err) => {
+      console.log(err);
+      setStatus("failed")
+    })
+  }
 
   return (
     <div
@@ -49,6 +92,7 @@ const DropzoneComponent = () => {
           <p>Drag and drop file here</p>
         )}
       </div>
+      <button style={{ border: 'none', background: 'pink', padding: '14px', borderRadius: '5px', margin: '14px' }}>Add guardians</button>
     </div>
   );
 };
