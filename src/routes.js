@@ -3,15 +3,17 @@ import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 import AllOutpassTable from "layouts/all-outpasses-table";
 import AllStudentRequestsTable from "layouts/all-student-requests";
+// import CreateAccount from "layouts/create-accounts";
+import CreateUsers from "layouts/create-users";
 
 import FileUpload from "layouts/file-upload";
 
-import Billing from "layouts/billing";
-import RTL from "layouts/rtl";
+// import Billing from "layouts/billing";
+// import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
 import OutpassTracker from "layouts/outpass-tracker";
-import Profile from "layouts/profile";
-import SignIn from "layouts/authentication/sign-in";
+// import Profile from "layouts/profile";
+// import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
@@ -84,14 +86,14 @@ const routes = [
     route: "/notifications",
     component: <Notifications />,
   },
-  {
-    type: "collapse",
-    name: "Profile",
-    key: "profile",
-    icon: <Icon fontSize="small">person</Icon>,
-    route: "/profile",
-    component: <Profile />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Profile",
+  //   key: "profile",
+  //   icon: <Icon fontSize="small">person</Icon>,
+  //   route: "/profile",
+  //   component: <Profile />,
+  // },
   // {
   //   type: "collapse",
   //   name: "Sign In",
@@ -108,13 +110,22 @@ const routes = [
   //   route: "/authentication/sign-up",
   //   component: <SignUp />,
   // },
+  // {
+  //   type: "collapse",
+  //   name: "Create Accounts",
+  //   key: "sign-up",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/create-account",
+  //   component: <SignUp />,
+  // },
+
   {
     type: "collapse",
-    name: "Create Accounts",
-    key: "sign-up",
+    name: "Create Users",
+    key: "create-users",
     icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/create-account",
-    component: <SignUp />,
+    route: "/create-users",
+  component: <CreateUsers />,
   },
 ];
 
