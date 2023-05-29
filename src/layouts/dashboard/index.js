@@ -35,7 +35,7 @@ function Dashboard() {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       setAnalytics(data);
     })
     .catch((err) => console.log(err))

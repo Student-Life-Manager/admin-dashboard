@@ -19,18 +19,18 @@ const DropzoneComponent = () => {
 
       const data = XLSX.utils.sheet_to_json(ws)
 
-      console.log(data)
+      // console.log(data)
 
       setGuardianDetails(data)
 
       data.map((student) => {
-        console.log(student.Email)
-        console.log(student.Relation)
-        console.log(student.Phone)
+        // console.log(student.Email)
+        // console.log(student.Relation)
+        // console.log(student.Phone)
         return null
       })
 
-      console.log("data",data);
+      // console.log("data",data);
     }
 
     reader.readAsBinaryString(acceptedFiles[0])

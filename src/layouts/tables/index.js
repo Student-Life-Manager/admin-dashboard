@@ -33,7 +33,7 @@ function Tables() {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      // console.log(data)
       setStudents(authorsTableData(data))
     })
     .catch((err) => console.log(err))
@@ -62,7 +62,7 @@ function Tables() {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      // console.log(data)
       setOutpasses(projectsTableData(data))
     })
     .catch((err) => console.log(err))
