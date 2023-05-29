@@ -2,6 +2,8 @@
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 import AllOutpassTable from "layouts/all-outpasses-table";
+import AllStudentRequestsTable from "layouts/all-student-requests";
+
 import FileUpload from "layouts/file-upload";
 
 import Billing from "layouts/billing";

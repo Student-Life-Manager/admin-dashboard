@@ -1,5 +1,4 @@
 
-
 // @mui material components
 import Grid from "@mui/material/Grid";
 
@@ -21,22 +20,43 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 // Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+import { useEffect, useState } from "react";
 
 function Dashboard() {
+  const [analytics, setAnalytics] = useState({ students: 0, wardens: 0, guardians: 0, outpasses: 0 })
   const { sales, tasks } = reportsLineChartData;
+
+  const fetchAnalytics = () => {
+    const BASE_URL = "http://localhost:8000"
+    fetch(`${BASE_URL}/logs/analytics`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      setAnalytics(data);
+    })
+    .catch((err) => console.log(err))
+  }
+
+  useEffect(() => {
+    fetchAnalytics()
+  }, [])
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox py={3}>
         <Grid container spacing={3}>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="error"
                 icon="access_time"
-                title=" Total returns pending"
-                count="3"
+                title=" Total valid outpasses"
+                count={analytics.outpasses}
                 percentage={{
                   // color: "error",
                   // amount: "+1%",
@@ -45,46 +65,43 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="info"
                 icon="admin_panel_settings"
-                title="Active wardens"
-                count={4}
+                title="Active warden accounts"
+                count={analytics.wardens}
                 percentage={{
                   label: "Contact inactive wardens",
                 }}
               />
             </MDBox>
           </Grid>
-          {/* <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="secondary"
-                icon="access_time"
-                title="Today's Users"
-                count="2,300"
-                percentage={{
-                  color: "success",
-                  amount: "+3%",
-                  label: "than last month",
-                }}
-              />
-            </MDBox>
-          </Grid> */}
-          
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
                 icon="person_add"
                 title="New student users"
-                count="20"
+                count={analytics.students}
                 percentage={{
                   color: "success",
                   amount: "",
                   label: "Just updated",
+                }}
+              />
+            </MDBox>
+          </Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <MDBox mb={1.5}>
+              <ComplexStatisticsCard
+                color="info"
+                icon="admin_panel_settings"
+                title="Unverified guardians"
+                count={analytics["unverified guardians"]}
+                percentage={{
+                  label: "Verify guardians",
                 }}
               />
             </MDBox>
