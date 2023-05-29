@@ -23,7 +23,20 @@ function Tables() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <Dropzone/>
+      <div style={{ margin : "50px 0"}}>
+      <div style={{ width : '600px', margin : "0 auto"}}>
+    <h3 style={{ textAlign: 'center' }}>Admin upload</h3>
+      <p style={{ textAlign: 'center', fontSize : '14px' }}>
+      Please drop the Excel sheet containing student guardian details here to update and verify the guardians of all students in the database.
+        <br />
+        <em>Ideal size: 5MB or less.</em>
+      </p>
+    </div>
+
+    <Dropzone/>
+      </div>
+      
+    
       {/* <Footer /> */}
     </DashboardLayout>
   );

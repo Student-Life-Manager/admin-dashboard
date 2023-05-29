@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import { useDropzone } from 'react-dropzone';
+import DescriptionIcon from '@mui/icons-material/Description';
+import Icon from '@mui/material/Icon';
+import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
+import { border, fontSize } from '@mui/system';
 
 const DropzoneComponent = () => {
   const onDrop = (acceptedFiles) => {
@@ -25,14 +29,18 @@ const DropzoneComponent = () => {
         console.log(student.Phone)
         return null
       })
+
+      console.log("data",data);
     }
 
     reader.readAsBinaryString(acceptedFiles[0])
 
+    setFileUploaded(true);
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   const [guardianDetails, setGuardianDetails] = useState([])
+  const [fileUploaded, setFileUploaded] = useState(false);
   const [status, setStatus] = useState("Add Guardians")
 
   const addGuardians = () => {
@@ -57,50 +65,65 @@ const DropzoneComponent = () => {
 
   return (
     <div
-      {...getRootProps()}
       style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh',
+        height: '350px',
       }}
     >
-    <div style={{ width : '600px'}}>
-    <h3 style={{ textAlign: 'center' }}>Admin upload</h3>
-      <p style={{ textAlign: 'center', fontSize : '14px' }}>
-      Please drop the Excel sheet containing student guardian details here to update and verify the guardians of all students in the database.
-        <br />
-        <em>Ideal size: 5MB or less.</em>
-      </p>
-    </div>
-      <div
-        {...getInputProps()}
+
+      {!fileUploaded ? <div
+        {...getRootProps()}
         style={{
           width: '600px',
           height: '200px',
           border: '2px dashed',
           borderRadius: '8px',
-          borderColor: isDragActive ? 'blue' : 'gray',
+          borderColor: isDragActive ? 'blue' : 'rgba(0,0,0,0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          marginTop : "50px", 
+          color : "rgba(0,0,0,0.5)",
+          fontSize : "18px"
+        }}
+      >
+
+      {/* <DescriptionIcon style={{marginRight : "20px", size : "large", color : "rgba(0,0,0,0.5)"}}/> */}
+        {isDragActive ? (
+          <p>Drop the file here</p>
+        ) : (
+          <p>Drag and drop file here</p>
+        )}
+        
+      </div> : <div
+        {...getRootProps()}
+        style={{
+          width: '600px',
+          height: '200px',
+          border: '0.5px solid',
+          borderRadius: '8px',
+          borderColor: '#313FDD',
+          backgroundColor : "#E6EBFF",
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
           marginTop : "50px"
         }}
-        onClick={(e) => {
-          addGuardians();
-        }}
       >
-        {isDragActive ? (
-          <p>Drop the file here</p>
-        ) : (
-          <p>Drag and drop file here</p>
-        )}
-      </div>
-      <button onClick={(e) => {
-        addGuardians();
-      }} style={{ border: 'none', background: 'pink', padding: '14px', borderRadius: '5px', margin: '14px' }}>{status}</button>
+      <FileDownloadDoneIcon   style={{marginRight : "20px", size : "large"}}/>
+      File uploaded
+        
+      </div>}
+      <button style={{marginTop : "40px", paddingInline : "20px", paddingBlock : "15px", "backgroundColor" : "#313FDD", width:"200px", borderRadius : "8px", color : "#fff", border : "none", cursor : "pointer", fontWeight : "500"}}
+        onClick={(e) => {
+          e.preventDefault();
+        addGuardians();}}>{status}
+      </button>
     </div>
   );
 };
